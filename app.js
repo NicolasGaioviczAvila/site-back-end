@@ -20,6 +20,10 @@ app.use(cors({
     origin: 'http://localhost:3000', // Substitua pela URL correta
     credentials: true
   }));
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
 app.use( express.urlencoded({
     extended: true
     })
