@@ -34,7 +34,7 @@ router.post('/get-login', async function(req, res) {
 
         if(result){
             const token = jwt.sign({userid: id}, SECRET);
-            res.cookie("token", token, {httpOnly: true}).json({
+            res.cookie("token", token, {httpOnly: true, secure: false}).json({
                 resultado : "logado",
                 token : token
             });
