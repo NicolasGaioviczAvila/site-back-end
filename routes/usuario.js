@@ -338,4 +338,10 @@ router.post("/alterar-usuario", auth, async (req, res) => {
     }
 });
 
+router.get("/all", async (req, res) => {
+    const all = db(`select * from TblUsuario`)
+    res.status(200).json({
+        resposta : all
+    })
+});
 module.exports = router;
