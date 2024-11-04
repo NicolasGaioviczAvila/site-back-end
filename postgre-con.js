@@ -1,18 +1,8 @@
 const mysql = require("mysql2/promise");
 
 
-let db
-
-(async function (){
-    if(db == undefined){
-        db = await mysql.createConnection(process.env.STRING_CONN);
-        console.log(process.env.STRING_CONN)
-    }
-    
-})()
-
 async function conn(sqlquery, list) {
-   
+   const db = await mysql.createConnection(process.env.STRING_CONN);
     try{
         if(!list){
             console.log(sqlquery)
